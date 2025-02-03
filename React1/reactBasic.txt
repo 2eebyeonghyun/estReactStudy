@@ -99,3 +99,6 @@ npm install @testing-library/react@13.4.0
 npm create vite@latest
 
 실행하려면 만든 폴더로 접근 후 app.js에서 npm start
+
+리엑트에서 자주나오는 ES6( 바닐라 JS) 개념들
+- 클래스, 화살표함수, 배열
