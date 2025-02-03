@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ● TypeScript : JS에 타입을 부여하면 TS
+            - 오픈소스( MicroSoft에서 관리)
+            - JS를 자바화 시키는 느낌
+            - JS를 좀 더 엄격하게 사용한다.
+            - 타입을 일일히 지정해주는 컨셉, 처음에는 굉장히 불편, 코드가 길어질수록
+              타입관련 부분에서 잘못된 데이터가 전달되는 상황 자체를 막아준다라는점은
+              운영 안정성 자체를 높일 수 있어서 편하다.
+
+        ● TS를 써야하는 이유
+            - 서비스가 실행되는 동안 잘못된 데이터가 넘어오는것을 최대한 방지하고 싶어서
+            - CSS/ SASS
+
+
+        TS에서는 기본적인 타입을 지정하여 사용할 수 있음
+        const anExampleVariable: string = "Hello World"
+        console.log(anExampleVariable);
+    -->
+
+    <script>
+        // TS에서는 처음에 문자열로 선언해두면 그 변수는
+        // 프로그램이 종료될 때까지 문자열만 저장 가능
+        // let test1 = '테스트1';
+        // test1 = 36; // 이 코드는 js에서는 상관x 다만, ts에서는 에러가 발생한다.
+        // console.log(test1);
+
+        // TS라 해서 모든것을 완벽히 추론하진 않는다.
+        // ● JS의 타입
+        // Boolean
+        // Number
+        // String
+        // null
+        // Undefined
+        // Object
+        // Symbol
+
+        // ● TS에서 적용되는 새로운 타입
+        // unknown = any
+        // 거의 비슷하게 쓰이지만 차이점을 먼저 이해하는게 편함
+        //  -> 엄격함의 정도
+        //  -> any: 어떤 타입이든지 다 받겠다
+        //  -> unknown : 말그대로 뭔지 모르겠다.( 엄격)
+        // TS의 성격을 맞춘다면 unknown을 쓰는것이 맞긴함
+        //  -> 코드가 길어질수록 unknown은 쓰기 까다로움
+        //     다만 코드의 안정성은 올라감
+
+        // let any1: any = 123;
+        // let unk1: unk = 1234;
+        // console.log(any1.length);
+        // console.log(unk1.length);
+
+        // ● TS와 null
+        // null이나 undefined같은 경우는 나오는거 확인하고 조건문으로 처리
+        // TS에서는 설정 시 컴파일옵션에 다음의 속성을 추가하여 
+        // 일반적인 변수에 null을 할당할 수 없도록 처리하는것도 가능
+
+        // ● stricNullChecks
+        // 엄격한 null 검사
+
+        // ● never :
+        // 자료형 값을 담는게 아니라 TS를 기준으로 잘못된 것을 알려주기 위한 키워드
+        //  -> 절대로 발생할 수 없는 타입
+        //  -> 에러 리턴 시 항상 오류 발생 or 절대로 리턴하지 않는 타입
+
+        // never는 타입만 지정한다해서 끝나는것은 아니다.
+        // function test1(): never {
+        //     while(true) {
+
+        //     }
+        // }
+        // const never: [] = [];
+        // never.push(111);
+
+
+        // ● void : 타입이 없다.
+        //  -> 함수에서 리턴값이 없다라는것을 표현할 때 사용
+        //  -> 변수에 선언하는것은 js의 특성상 무의미해서 비권장
+        //     (void 타입의 변수에는 undefined, null만 할당이 가능)
+
+
+        // ● literal : 문자열, 숫자에 값을 정확하게 지정할 때 사용한다. 
+        //  -> TS에서 타입은 자료형 뿐만 아니라 값 자체를 타입으로 지정할 수 있다.
+        // ● 숫자 literal의 예시
+        // 아래의 코드는 리턴값을 1~6까지만 허용한다.
+        function Dice(): 1 |2 |3 |4 |5 |6 {
+            return 15;
+        }
+
+        // console.log(Dice());
+
+
+
+        // 클래스, 인터페이스
+        // 제네릭
+        const test2 = JSON.parse('9724');
+        console.log(typeof test2);
+    </script>
+</body>
+</html>
