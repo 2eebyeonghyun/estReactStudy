@@ -197,4 +197,4 @@ react에서는 inline( jsx문법을 맞춰서 작성했다는 전제)과 외부�
 - 확장자가 .module.css <-- 확장자가 같다는 특징이 있다.
 
 
-sass
+sass/scss 인식을 못하면 npm i sass
