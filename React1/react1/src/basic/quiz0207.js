@@ -227,5 +227,4 @@ function ImageGallery() {
     );
 }
 
-
 export default ProductList;
