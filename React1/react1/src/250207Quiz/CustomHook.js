@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useImagePreloader = (imageUrls) => {
+const useImagePreloader = (imageUrls) => {
     // state를 선언 / 초기값을 idle과 0으로 설정
     const [loadingStatus, setLoadingStatus] = useState('idle');
     const [progress, setProgress] = useState(0);
@@ -66,3 +66,5 @@ export const useImagePreloader = (imageUrls) => {
 
     return { loadingStatus, progress };
 }
+
+export default useImagePreloader;

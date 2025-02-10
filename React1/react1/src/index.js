@@ -1,32 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import UseState from './Hooks/useStateExam.js';
-import UseEffect from './Hooks/useEffectExam.js';
-import UseContext from './Hooks/useContextExam.js';
-import UseRef from './Hooks/useRefExam.js';
-import UseReducer from './Hooks/useReducer.js';
-import UseReducer2 from './Hooks/useReducer2.js';
-import UseMemo from './Hooks/useMemo.js';
-import Quiz0207 from './basic/quiz0207.js';
-import CustomHook from './Hooks/customHook.js';
-import RoutingApp from './RoutingApp.js';
-import RouterQuiz from './routerQuiz1/App.js';
-import RouterQuiz2 from './routerQuiz2/ProductList.js';
-
-import Quiz2 from './250207Quiz/Quiz.js';
+import Redux1 from './Redux/Counter';
+import { store } from './Redux/store';
+import { Provider } from 'react-redux';
 
 // Hooks 전용 index
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Redux1 />);
+
+// redux를 쓰기 위해서는 Provider 컴포넌트가 필요
+// Provider에 store props를 필수로 전달해야한다.
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<UseState />);
-// root.render(<UseEffect />);
-// root.render(<UseContext />);
-// root.render(<UseRef />);
-// root.render(<UseReducer />);
-// root.render(<UseReducer2 />);
-// root.render(<UseMemo />);
-// root.render(<Quiz0207 />);
-// root.render(<CustomHook />);
-// root.render(<RoutingApp />);
-// root.render(<RouterQuiz />);
-// root.render(<RouterQuiz2 />);
-root.render(<Quiz2 />);
+root.render(
+    <React.StrictMode>
+        {/* 
+            redux를 사용할 때는 최상위 컴포넌트는 반드시 Provider 컴포넌트를 감싸져야한다.
+            store props 또한 필수적으로 전달해줄 필요가 있다.
+        */}
+        <Provider store={store}>
+            <Redux1 />
+        </Provider>
+    </React.StrictMode>
+);
