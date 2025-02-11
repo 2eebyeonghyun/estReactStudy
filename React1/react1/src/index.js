@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Redux1 from './Redux/Counter';
-import { store } from './Redux/store';
-import { Provider } from 'react-redux';
+// import Redux1 from './Redux/Counter';
+// import { store } from './Redux/store';
+// import { Provider } from 'react-redux';
+
+import TodoList from './DataChange/App.js'
 
 // Hooks 전용 index
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Redux1 />);
+root.render(<TodoList />);
 
 // redux를 쓰기 위해서는 Provider 컴포넌트가 필요
 // Provider에 store props를 필수로 전달해야한다.

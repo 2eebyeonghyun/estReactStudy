@@ -4,7 +4,7 @@
 // 3. 변화량도 함께 표시하세요
 // 4. 첫 렌더링시에는 이전 값 대신 "-"를 표시하세요
 
-import { useEffect, useState, useRef, memo } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function ValueTracker() {
     
@@ -41,21 +41,8 @@ function ValueTracker() {
 // 3. 여러 컴포넌트에서 같은 키로 접근하면 데이터가 동기화되어야 합니다
 // 4. JSON 형식의 데이터도 처리할 수 있어야 합니다
 
-function TodoApp({todos, addTodo}) {
-    
-    console.log('test');
-
-    return(
-        <>
-            <h1>할 일 목록</h1>
-
-            {todos.map((todo, index) => {
-                return <p key={index}>{todo}</p>;
-            })}
-            <button onClick={addTodo}>Add Todo</button>
-        </>
-    )
+function TodoApp() {
+    // 여기에 코드를 작성하세요
 }
 
 // export default ValueTracker;
-export default memo(TodoApp);
