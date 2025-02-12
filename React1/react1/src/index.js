@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom/client';
 // import Redux1 from './Redux/Counter';
 // import { store } from './Redux/store';
 // import { Provider } from 'react-redux';
-
-import App from './ReduxQuiz2/App'
-// import TodoList from './DataChange/App.js'
+import BasicForm from './FormAndValidation/App'
 
 // Hooks 전용 index
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(<BasicForm />);
 
 // redux를 쓰기 위해서는 Provider 컴포넌트가 필요
 // Provider에 store props를 필수로 전달해야한다.

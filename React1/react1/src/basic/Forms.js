@@ -75,9 +75,7 @@ function SelectBoxTest() {
 
     const [sel, setSel] = useState('test2');
 
-    const selChange = (e) => {
-        setSel(e.target.value);
-    };
+    const selChange = (e) => {setSel(e.target.value);};
 
     return(
         <>

@@ -403,7 +403,7 @@
 //  -> 패키지 설치 후 스토어 설정을 통해 react에서 디버깅 진행을 할 수 있음
 
 
-// redux 미들웨어 : 액션이 dispatch되어 reducer에서 처리되기 전에 사전작업을
+// ● redux 미들웨어 : 액션이 dispatch되어 reducer에서 처리되기 전에 사전작업을
 //                 처리할 수 있도록 도와주는 중간자
 // 1. 로깅 미들웨어 : npm install redux-logger
 // 2. 비동기 작업처리 : thunk 참고
@@ -414,7 +414,7 @@
 //     (액션과 리듀서 사이에서 데이터를 가공)
 //     (순수함수를 통한 상태 변경)
 
-//  상태가공과 데이터변형
+//  ● 상태가공과 데이터변형
 //  주의사항 : 데이터의 변형은 불변성을 지켜야한다.( 원본에는 손 안댄다)
 //  1. 배열의 변형 : 불변성 유지에 대해 신경을 쓸 필요가 있다.
 //      -> 새로운 항목을 추가시
@@ -443,4 +443,49 @@
 //  -> 처리과정
 //     (액션의 정보를 가로채서 필요한 가공 작업 수행)
 //     (특정 조건에 따라 액션 수행여부 결정)
-//     (하나의 액션에서 여러 상태 변경 가능)
+//     (하나의 액션에서 여러 상태 변경 가능
+
+
+// ● 커스텀 미들웨어 예시
+// 1. 로깅
+
+// 2. 유효성검사
+//  -> 액션이 리듀서에 도착하기 전에 데이터의 유효성을 미리 검사
+
+//  store : dispatch, store의 메서드를 담고 있는 객체( getState)
+//  next : 그다음 실행할 미들웨어를 가리키는 객체
+// 아래와 같은 형태를 커링 함수 형태라 부른다.
+// 커링함수 : 파라미터를 나눠 받는 형태의 함수
+//  -> 경로를 확장하거나 경로를 지시하고 싶을 때 사용
+
+// const validationMiddleware = store => next => action => {
+//     // 액션 타입에 따른 유효성 검사
+//     if (action.type === 'todos/addTodo') {
+//         // 할 일 항목 유효성 검사
+//         if (!action.payload || action.payload.trim().length < 2) {
+//             console.warn('Todo 항목은 최소 2글자 이상이어야 합니다.');
+//             return; // 유효하지 않은 경우 액션 중단
+//         }
+//     }
+    
+//     // 유효성 검사 통과 시 다음 미들웨어로 전달
+//     return next(action);
+// };
+
+// 이 구조랑 같은거임
+// function store() {
+//     function next(p2) {
+//         function action(p3) {
+
+//         }
+//     }
+// }
+
+// import { configureStore } from '@reduxjs/toolkit';
+// const store = configureStore({
+//     reducer: rootReducer,
+//     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(validationMiddleware)
+// });
+
+// 3. 로컬스토리지
+// 4. 스토어에 미들웨어 적용
