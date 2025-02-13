@@ -102,15 +102,13 @@ function GetUser() {
 
     return(
         <div>
-            {
-                users.map((user) => (
-                    <div style={box} key={user.id}>
-                        <p>ID : {user.id}</p>
-                        <p>이름 : {user.name}</p>
-                        <p>이메일 : {user.email}</p>
-                    </div>
-                ))
-            }
+            {users.map((user) => (
+                <div style={box} key={user.id}>
+                    <p>ID : {user.id}</p>
+                    <p>이름 : {user.name}</p>
+                    <p>이메일 : {user.email}</p>
+                </div>
+            ))}
         </div>
     )
 }

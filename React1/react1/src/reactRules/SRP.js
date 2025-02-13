@@ -15,34 +15,34 @@ import { useEffect } from "react";
 // 아래의 컴포넌트는 사실 하는일이 제법 있음
 // 리스트 랜더링, 데이터 필터링(데이터 수정), 데이터 패칭(불러오기)
 //  -> 위의 코드들을 기준에 맞춰서 따로 컴포넌트화.
-// const ActiveUsersList = () => {
-//     const [users, setUsers] = useState([])
+const ActiveUsersList = () => {
+    const [users, setUsers] = useState([])
     
-//     useEffect(() => {
-//       const loadUsers = async () => {  
-//         const response = await fetch('/some-api')
-//         const data = await response.json()
-//         setUsers(data)
-//       }
+    useEffect(() => {
+        const loadUsers = async () => {  
+            const response = await fetch('/some-api')
+            const data = await response.json()
+            setUsers(data)
+        }
   
-//       loadUsers()
-//     }, [])
+        loadUsers()
+    }, [])
     
-//     const weekAgo = new Date();
-//     weekAgo.setDate(weekAgo.getDate() - 7);
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
   
-//     return (
-//       <ul>
-//         {users.filter(user => !user.isBanned && user.lastActivityAt >= weekAgo).map(user => 
-//           <li key={user.id}>
-//             <img src={user.avatarUrl} />
-//             <p>{user.fullName}</p>
-//             <small>{user.role}</small>
-//           </li>
-//         )}
-//       </ul>    
-//     )
-//   }
+    return (
+        <ul>
+            {users.filter(user => !user.isBanned && user.lastActivityAt >= weekAgo).map(user => 
+                <li key={user.id}>
+                    <img src={user.avatarUrl} />
+                    <p>{user.fullName}</p>
+                    <small>{user.role}</small>
+                </li>
+            )}
+        </ul>    
+    )
+}
 
 // 이 코드는 SRP를 준수했을까?
 const useBooks = () =>{
@@ -57,8 +57,6 @@ const useBooks = () =>{
         };
         fetchBooks();
     }, []);
-
-
 }
 
 
@@ -67,6 +65,6 @@ const BookList = () => {
     const {books} = useBooks()
   
     return (
-      <div>{books.map(book => <Book {...book} />)}</div>
+        <div>{books.map(book => <Book {...book} />)}</div>
     );
-  };
+};
