@@ -20,20 +20,20 @@ function UserList() {
                 <h2>사용자 목록</h2>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                     {users.map(user => (
-                    <li 
-                        key={user.id}
-                        onClick={() => dispatch(selectUser(user))}
-                        style={{
-                        padding: '10px',
-                        margin: '5px 0',
-                        border: '1px solid #ddd',
-                        cursor: 'pointer',
-                        backgroundColor: selectedUser?.id === user.id ? '#e3e3e3' : 'white'
-                        }}
-                    >
-                        <h3>{user.name}</h3>
-                        <p>{user.email}</p>
-                    </li>
+                        <li 
+                            key={user.id}
+                            onClick={() => dispatch(selectUser(user))}
+                            style={{
+                            padding: '10px',
+                            margin: '5px 0',
+                            border: '1px solid #ddd',
+                            cursor: 'pointer',
+                            backgroundColor: selectedUser?.id === user.id ? '#e3e3e3' : 'white'
+                            }}
+                        >
+                            <h3>{user.name}</h3>
+                            <p>{user.email}</p>
+                        </li>
                     ))}
                 </ul>
             </div>
